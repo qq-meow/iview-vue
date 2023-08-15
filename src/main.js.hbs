@@ -1,0 +1,24 @@
+import Vue from 'vue'
+import App from './App.vue'
+import router from '@/routers'
+{{#if isStore}}
+import store from './store'
+{{/if}}
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
+
+Vue.use(iView);
+// import vConsole from '@/utils/vconsole.js'
+
+Vue.config.productionTip = !1
+
+// if (process.env.NODE_ENV) {
+//     Vue.use(vConsole)
+// }
+
+
+new Vue({
+    router,
+     {{#if isStore}} store, {{/if}}
+    render: o => o(App)
+}).$mount('#app')
